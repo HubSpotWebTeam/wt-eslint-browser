@@ -1,5 +1,5 @@
 {
-  "name": "@hs-web-team/eslint-config",
+  "name": "eslint-config-wt-browser",
   "version": "0.1.0",
   "description": "Web Team linting dependencies and rules.",
   "main": "index.js",
