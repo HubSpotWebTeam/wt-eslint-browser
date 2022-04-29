@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-wt-browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web Team linting dependencies and rules.",
   "main": "index.js",
   "scripts": {
