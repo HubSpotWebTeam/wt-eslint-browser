@@ -1,11 +1,22 @@
 {
   "name": "eslint-config-wt-browser",
   "version": "0.1.0",
-  "description": "Web Team linting dependencies and rules.",
+  "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubSpotWebTeam/wt-eslint-browser.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "bugs": {
+    "url": "https://github.com/HubSpotWebTeam/wt-eslint-browser/issues"
+  },
+  "homepage": "https://github.com/HubSpotWebTeam/wt-eslint-browser#readme",
   "author": "Marketing Web Team",
   "license": "ISC",
   "dependencies": {
