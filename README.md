@@ -1,4 +1,4 @@
-# Hubspot Marketing WebTeam ESLing rules for Browsers
+# Hubspot Marketing WebTeam ESLint rules for Browsers
 
 This is a list of ESLint rules that are recommended for use with Hubspot Marketing WebTeam projects.
 
