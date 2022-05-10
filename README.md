@@ -2,7 +2,7 @@
 
 This is a list of ESLint rules that are recommended for use with Hubspot Marketing WebTeam projects.
 
-https://www.npmjs.com/package/@hs-web-team/eslint-config-node
+https://www.npmjs.com/package/@hs-web-team/eslint-config-browser
 
 <!-- index-start -->
 ## Index
@@ -22,14 +22,14 @@ This is a set of ESLint rules that are recommended for use with Hubspot Marketin
 1. Install as dev dependency
 
 ```
-npm i -D @hs-web-team/eslint-config-node
+npm i -D @hs-web-team/eslint-config-browser
 ```
 
 2. Add to `.eslintrc` in project root directory
 
 ```json
 {
-  "extends": "@hs-web-team/eslint-config-node"
+  "extends": "@hs-web-team/eslint-config-browser"
 }
 ```
 
@@ -37,7 +37,7 @@ npm i -D @hs-web-team/eslint-config-node
 
 ```
 {
-  "extends": "@hs-web-team/eslint-config-node",
+  "extends": "@hs-web-team/eslint-config-browser",
   "settings": {
     "import/resolver": "webpack"
   }
@@ -48,7 +48,7 @@ npm i -D @hs-web-team/eslint-config-node
 
 ```json
 {
-  "extends": "./node_modules/@hs-web-team/eslint-config-node/.stylelintrc.json",
+  "extends": "./node_modules/@hs-web-team/eslint-config-browser/.stylelintrc.json",
   "ignoreFiles": [
     // any folders to ignore
     // e.g. "./dist/**/*.{css,scss,sass}"

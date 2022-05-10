@@ -1,5 +1,5 @@
 {
-  "name": "@hs-web-team/eslint-config-node",
+  "name": "@hs-web-team/eslint-config-browser",
   "version": "0.1.0",
   "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
