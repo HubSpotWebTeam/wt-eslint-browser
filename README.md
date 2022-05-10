@@ -2,14 +2,14 @@
 
 This is a list of ESLint rules that are recommended for use with Hubspot Marketing WebTeam projects.
 
-https://www.npmjs.com/package/eslint-config-wt-browser
+https://www.npmjs.com/package/@hs-web-team/eslint-config-browser
 
 <!-- index-start -->
 ## Index
 
 - [Introduction](#introduction)
 - [Setup](#setup)
-- [Migrating from an exisiting .eslint config](#migrating-from-an-exisiting-eslint-config)
+- [Migrating from an exisiting .eslint config](#migrating-from-an-existing-eslint-config)
 - [Where to use it](#where-to-use-it)
 <!-- index-end -->
 
@@ -22,14 +22,14 @@ This is a set of ESLint rules that are recommended for use with Hubspot Marketin
 1. Install as dev dependency
 
 ```
-npm i -D eslint-config-wt-browser
+npm i -D @hs-web-team/eslint-config-browser
 ```
 
 2. Add to `.eslintrc` in project root directory
 
 ```json
 {
-  "extends": "eslint-config-wt-browser"
+  "extends": "@hs-web-team/eslint-config-browser"
 }
 ```
 
@@ -37,7 +37,7 @@ npm i -D eslint-config-wt-browser
 
 ```
 {
-  "extends": "eslint-config-wt-browser",
+  "extends": "@hs-web-team/eslint-config-browser",
   "settings": {
     "import/resolver": "webpack"
   }
@@ -48,7 +48,7 @@ npm i -D eslint-config-wt-browser
 
 ```json
 {
-  "extends": "./node_modules/eslint-config-wt-browser/.stylelintrc.json",
+  "extends": "./node_modules/@hs-web-team/eslint-config-browser/.stylelintrc.json",
   "ignoreFiles": [
     // any folders to ignore
     // e.g. "./dist/**/*.{css,scss,sass}"
@@ -56,7 +56,7 @@ npm i -D eslint-config-wt-browser
 }
 ```
 
-## Migrating from an exisiting .eslint config
+## Migrating from an existing .eslint config
 
 1. Remove `node_modules`
 2. Delete `package-lock.json`
