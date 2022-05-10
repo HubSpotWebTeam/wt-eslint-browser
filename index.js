@@ -19,7 +19,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'no-plusplus': 0,
-    'no-console': 0,
+    'no-console': ["error", { allow: ["warn", "error"] }],
     'no-confusing-arrow': 0,
     'import/no-extraneous-dependencies': 0,
     'no-trailing-spaces': [2, { skipBlankLines: true }],
