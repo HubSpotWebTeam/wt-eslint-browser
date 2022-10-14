@@ -30,6 +30,12 @@
     "no-duplicate-selectors": null,
     "max-line-length": null,
     "scss/double-slash-comment-whitespace-inside": null,
-    "font-family-name-quotes": null
+    "font-family-name-quotes": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "camelCaseSvgKeywords": true
+      }
+    ]
   }
 }
