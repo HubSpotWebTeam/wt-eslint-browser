@@ -16,7 +16,7 @@ module.exports = {
     'comma-dangle': 1,
     'no-param-reassign': [1, { props: false }],
     'arrow-parens': 0,
-    'import/extensions': 'off',
+    'import/extensions': ['warn', 'ignorePackages'],
     'import/no-unresolved': 'off',
     'no-plusplus': 0,
     'no-console': ['error', { allow: ['warn', 'error'] }],
