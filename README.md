@@ -66,8 +66,8 @@ const { getDevBaseUrl, config, envs } = require('@hs-web-team/eslint-config-brow
 const devBaseUrl = getDevBaseUrl();
 const baseUrls = {
   [envs.DEV]: devBaseUrl,
-  [envs.QA]: 'https://www.wthubspot.com',
-  [envs.PROD]: 'https://www.hubspot.com',
+  [envs.QA]: '{{QA_URL}}',
+  [envs.PROD]: '{{PROD_URL}}',
 };
 
 const baseUrl = baseUrls[envs.currentEnv];
