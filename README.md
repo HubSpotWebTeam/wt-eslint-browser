@@ -56,6 +56,29 @@ npm i -D @hs-web-team/eslint-config-browser
 }
 ```
 
+5. (Optional) Import cypress default configuration
+
+```js
+// cypress.config.js
+const { defineConfig } = require('cypress');
+const { getDevBaseUrl, config, envs } = require('@hs-web-team/eslint-config-browser/cypress.config.js');
+
+const devBaseUrl = getDevBaseUrl();
+const baseUrls = {
+  [envs.DEV]: devBaseUrl,
+  [envs.QA]: '{{QA_URL}}',
+  [envs.PROD]: '{{PROD_URL}}',
+};
+
+const baseUrl = baseUrls[envs.currentEnv];
+module.exports = defineConfig({
+  ...config,
+  e2e: {
+    baseUrl,
+  },
+});
+```
+
 ## Migrating from an existing .eslint config
 
 1. Remove `node_modules`
@@ -70,5 +93,3 @@ https://eslint.org/docs/developer-guide/shareable-configs
 ## Where to use it
 
 This package is intended to be used as a starting point for ESLint rules for FrontEnd projects, and should be used in browser environments.
-
-

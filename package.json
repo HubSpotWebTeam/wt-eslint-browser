@@ -1,6 +1,6 @@
 {
   "name": "@hs-web-team/eslint-config-browser",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "eslint-plugin-react": "^7.32.2",
     "stylelint": "^15.3.0",
     "stylelint-config-standard": "^31.0.0",
-    "stylelint-config-standard-scss": "^7.0.1"
+    "stylelint-config-standard-scss": "^7.0.1",
+    "js-yaml": "^4.1.0"
   }
 }

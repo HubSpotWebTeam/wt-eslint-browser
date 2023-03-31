@@ -3,3 +3,6 @@ npm-debug.log*
 yarn-debug.log*
 .idea
 .DS_Store
+
+# HubSpot config file
+hubspot.config.yml
