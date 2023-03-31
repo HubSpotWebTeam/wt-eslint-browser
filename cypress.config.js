@@ -12,13 +12,14 @@ const currentEnv = ENV || QA;
  * @returns {string|null} The `baseUrl` set for the `DEV` portal in `hubspot.config.yml`
  *   or `null` if this is not the dev environment or no such property exists.
  */
-export const envs = {
+const envs = {
   currentEnv,
   DEV,
   QA,
   PROD,
 }
-export const getDevBaseUrl = () => {
+
+const getDevBaseUrl = () => {
   if (ENV === DEV) {
     try {
       const configPath = path.resolve(__dirname, 'hubspot.config.yml');
@@ -38,7 +39,8 @@ export const getDevBaseUrl = () => {
 
   return null;
 };
-export const config = {
+
+const config = {
   env: {
     env: currentEnv,
     isProd: currentEnv === PROD,
@@ -56,3 +58,9 @@ export const config = {
     timestamp: 'yyyymmdd-HHMMss',
   },
 };
+
+module.exports = {
+  getDevBaseUrl,
+  config,
+  envs,
+}
