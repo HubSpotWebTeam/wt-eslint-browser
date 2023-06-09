@@ -1,6 +1,10 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
+// const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
+// const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
+// const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');//allure
 
 const { ENV } = process.env;
 const DEV = 'dev';
@@ -8,10 +12,6 @@ const QA = 'qa';
 const PROD = 'prod';
 const currentEnv = ENV || QA;
 
-/**
- * @returns {string|null} The `baseUrl` set for the `DEV` portal in `hubspot.config.yml`
- *   or `null` if this is not the dev environment or no such property exists.
- */
 const envs = {
   currentEnv,
   DEV,
@@ -19,6 +19,10 @@ const envs = {
   PROD,
 }
 
+/**
+ * @returns {string|null} The `baseUrl` set for the `DEV` portal in `hubspot.config.yml`
+ *   or `null` if this is not the dev environment or no such property exists.
+ */
 const getDevBaseUrl = () => {
   if (ENV === DEV) {
     try {
@@ -40,27 +44,47 @@ const getDevBaseUrl = () => {
   return null;
 };
 
-const config = {
-  env: {
-    env: currentEnv,
-    isProd: currentEnv === PROD,
-    isQA: currentEnv === QA,
-    isDev: currentEnv === DEV,
-  },
-  chromeWebSecurity: false,
-  reporter: 'mochawesome',
-  video: false,
-  reporterOptions: {
-    reportDir: 'cypress/reports/mochawesome-report',
-    overwrite: false,
-    html: false,
-    json: true,
-    timestamp: 'yyyymmdd-HHMMss',
+
+const e2e = {
+  baseUrl: 'https://www.wthubspot.com',
+  specPattern: 'cypress/e2e/*.cy.js',
+  testIsolation: false,
+  setupNodeEvents(on, config) {
+    allureWriter(on, config);
+    return config
   },
 };
 
+const env = {
+  allure: true,
+  allureLogGherkin: true,
+  allureReuseAfterSpec: true,
+};
+
+const config = {
+  chromeWebSecurity: false,
+  defaultCommandTimeout: 20000,
+  e2e,
+  env,
+  numTestsKeptInMemory: 0,
+  pageLoadTimeout: 20000,
+  port: 3500,
+  //reporter: 'mochawesome',
+  responseTimeout: 20000,
+  retries: {
+    runMode: 1,
+    openMode: 0,
+  },
+  screenshotOnRunFailure: true,
+  trashAssetsBeforeRuns: true,
+  video: false,
+  viewportHeight: 660,
+  viewportWidth: 1350,
+};
+
+
 module.exports = {
-  getDevBaseUrl,
   config,
   envs,
+  getDevBaseUrl,
 }
