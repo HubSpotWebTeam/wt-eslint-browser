@@ -82,7 +82,6 @@ const config = {
   viewportWidth: 1350,
 };
 
-
 module.exports = {
   config,
   envs,
