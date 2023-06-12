@@ -2,9 +2,9 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
 const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
-const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
-const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const webpack = require('@cypress/webpack-preprocessor');
+
 
 const { ENV } = process.env;
 const DEV = 'dev';
