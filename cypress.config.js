@@ -1,10 +1,10 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
-// const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
-// const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
-// const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');//allure
+const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
+const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
+const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 const { ENV } = process.env;
 const DEV = 'dev';
@@ -40,13 +40,44 @@ const getDevBaseUrl = () => {
       'To test a dev URL, add the `baseUrl` property to your `DEV` portal configuration in `hubspot.config.yml`',
     );
   }
-
   return null;
 };
 
 
+/**
+ * @returns {object} The configuration object for handling webpack extensions
+ */
+const setupNodeEvents = async (on, config) => {
+  // This is required for the preprocessor to be able to generate JSON reports after each run
+  await addCucumberPreprocessorPlugin(on, config);
+  on(
+    'file:preprocessor',
+    webpack({
+      webpackOptions: {
+        resolve: {
+          extensions: ['.ts', '.js'],
+        },
+        module: {
+          rules: [
+            {
+              test: /\.feature$/,
+              use: [
+                {
+                  loader: '@badeball/cypress-cucumber-preprocessor/webpack',
+                  options: config,
+                },
+              ],
+            },
+          ],
+        },
+      },
+    })
+  );
+  return config;
+}
+
+
 const e2e = {
-  baseUrl: 'https://www.wthubspot.com',
   specPattern: 'cypress/e2e/*.cy.js',
   testIsolation: false,
   setupNodeEvents(on, config) {
@@ -69,7 +100,6 @@ const config = {
   numTestsKeptInMemory: 0,
   pageLoadTimeout: 20000,
   port: 3500,
-  //reporter: 'mochawesome',
   responseTimeout: 20000,
   retries: {
     runMode: 1,
