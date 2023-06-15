@@ -42,29 +42,29 @@ const getDevBaseUrl = () => {
   return null;
 };
 
-const webpackOptions = {
-  resolve: {
-    extensions: ['.ts', '.js'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.feature$/,
-        use: [
-          {
-            loader: '@badeball/cypress-cucumber-preprocessor/webpack',
-            options: config,
-          },
-        ],
-      },
-    ],
-  },
-};
-
 const e2e = {
   specPattern: 'cypress/e2e/*.cy.js',
   testIsolation: false,
   async setupNodeEvents(on, config) {
+    const webpackOptions = {
+      resolve: {
+        extensions: ['.ts', '.js'],
+      },
+      module: {
+        rules: [
+          {
+            test: /\.feature$/,
+            use: [
+              {
+                loader: '@badeball/cypress-cucumber-preprocessor/webpack',
+                options: config,
+              },
+            ],
+          },
+        ],
+      },
+    };
+
     await addCucumberPreprocessorPlugin(on, config);
     on('file:preprocessor', webpack(webpackOptions));
     allureWriter(on, config);
