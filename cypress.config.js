@@ -5,7 +5,6 @@ const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-pr
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const webpack = require('@cypress/webpack-preprocessor');
 
-
 const { ENV } = process.env;
 const DEV = 'dev';
 const QA = 'qa';
@@ -43,44 +42,31 @@ const getDevBaseUrl = () => {
   return null;
 };
 
-
-/**
- * @returns {object} The configuration object for handling webpack extensions
- */
-const setupNodeEvents = async (on, config) => {
-  // This is required for the preprocessor to be able to generate JSON reports after each run
-  await addCucumberPreprocessorPlugin(on, config);
-  on(
-    'file:preprocessor',
-    webpack({
-      webpackOptions: {
-        resolve: {
-          extensions: ['.ts', '.js'],
-        },
-        module: {
-          rules: [
-            {
-              test: /\.feature$/,
-              use: [
-                {
-                  loader: '@badeball/cypress-cucumber-preprocessor/webpack',
-                  options: config,
-                },
-              ],
-            },
-          ],
-        },
+const webpackOptions = {
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.feature$/,
+        use: [
+          {
+            loader: '@badeball/cypress-cucumber-preprocessor/webpack',
+            options: config,
+          },
+        ],
       },
-    })
-  );
-  return config;
-}
-
+    ],
+  },
+};
 
 const e2e = {
   specPattern: 'cypress/e2e/*.cy.js',
   testIsolation: false,
-  setupNodeEvents(on, config) {
+  async setupNodeEvents(on, config) {
+    await addCucumberPreprocessorPlugin(on, config);
+    on('file:preprocessor', webpack(webpackOptions));
     allureWriter(on, config);
     return config
   },
