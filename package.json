@@ -1,6 +1,6 @@
 {
   "name": "@hs-web-team/eslint-config-browser",
-  "version": "0.7.1",
+  "version": "1.0.0",
   "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
   "scripts": {
@@ -21,30 +21,29 @@
   "author": "Marketing Web Team",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.3",
-    "@babel/eslint-parser": "^7.21.3",
-    "@babel/preset-env": "^7.12.7",
-    "@badeball/cypress-cucumber-preprocessor": "^17.2.1",
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/eslint-parser": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "@cypress/webpack-preprocessor": "^5.17.1",
     "@shelex/cypress-allure-plugin": "^2.40.0",
-    "cypress": "^12.9.0",
-    "eslint": "^8.36.0",
+    "cypress": "^12.17.3",
+    "eslint": "^8.46.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-webpack": "^0.13.2",
-    "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react": "^7.33.1",
     "js-yaml": "^4.1.0",
-    "stylelint": "^15.3.0",
-    "stylelint-config-standard": "^31.0.0",
-    "stylelint-config-standard-scss": "^7.0.1",
-    "webpack": "^5.74.0"
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "webpack": "^5.88.2"
   },
   "peerDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^17.2.1",
-    "cypress": "12.9.0",
-    "@cypress/webpack-preprocessor": "5.17.1"
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.2",
+    "@cypress/webpack-preprocessor": "^5.17.1",
+    "cypress": "^12.17.3"
   }
 }
