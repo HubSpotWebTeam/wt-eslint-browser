@@ -43,8 +43,6 @@
     "webpack": "^5.88.2"
   },
   "peerDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^18.0.2",
-    "@cypress/webpack-preprocessor": "^5.17.1",
-    "cypress": "^12.17.3"
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.2"
   }
 }
