@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.22.9",
     "@cypress/webpack-preprocessor": "^5.17.1",
     "@shelex/cypress-allure-plugin": "^2.40.0",
+    "babel-loader": "^8.3.0",
     "cypress": "^12.17.3",
     "eslint": "^8.46.0",
     "eslint-config-airbnb": "^19.0.4",
