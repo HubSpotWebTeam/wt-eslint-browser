@@ -21,29 +21,29 @@
   "author": "Marketing Web Team",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.22.9",
-    "@babel/core": "^7.22.9",
-    "@babel/eslint-parser": "^7.22.9",
-    "@babel/preset-env": "^7.22.9",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/eslint-parser": "^7.22.15",
+    "@babel/preset-env": "^7.23.2",
     "@cypress/webpack-preprocessor": "^5.17.1",
     "@shelex/cypress-allure-plugin": "^2.40.0",
-    "cypress": "^12.17.3",
-    "eslint": "^8.46.0",
+    "cypress": "^12.17.4",
+    "eslint": "^8.51.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-import-resolver-webpack": "^0.13.2",
-    "eslint-plugin-cypress": "^2.13.3",
-    "eslint-plugin-import": "^2.28.0",
+    "eslint-import-resolver-webpack": "^0.13.7",
+    "eslint-plugin-cypress": "^2.15.1",
+    "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react": "^7.33.2",
     "js-yaml": "^4.1.0",
-    "stylelint": "^15.10.2",
+    "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-config-standard-scss": "^10.0.0",
-    "webpack": "^5.88.2"
+    "webpack": "^5.89.0"
   },
   "peerDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^18.0.2",
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
     "@cypress/webpack-preprocessor": "^5.17.1",
-    "cypress": "^12.17.3"
+    "cypress": "^12.17.4"
   }
 }
