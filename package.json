@@ -27,7 +27,8 @@
     "@babel/preset-env": "^7.23.2",
     "@cypress/webpack-preprocessor": "^5.17.1",
     "@shelex/cypress-allure-plugin": "^2.40.0",
-    "cypress": "^12.17.4",
+    "cypress": "12.14.0",
+    "cypress-real-events": "^1.10.3",
     "eslint": "^8.51.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-webpack": "^0.13.7",
@@ -44,6 +45,6 @@
   "peerDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
     "@cypress/webpack-preprocessor": "^5.17.1",
-    "cypress": "^12.17.4"
+    "cypress": "12.14.0"
   }
 }
