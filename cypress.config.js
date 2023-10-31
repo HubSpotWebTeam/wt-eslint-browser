@@ -100,8 +100,8 @@ const config = {
   screenshotOnRunFailure: true,
   trashAssetsBeforeRuns: true,
   video: false,
-  viewportHeight: 660,
-  viewportWidth: 1350,
+  viewportHeight: 1080,
+  viewportWidth: 1920,
 };
 
 module.exports = {
