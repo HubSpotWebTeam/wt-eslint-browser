@@ -26,7 +26,7 @@
     "@babel/eslint-parser": "^7.22.15",
     "@babel/preset-env": "^7.23.2",
     "@cypress/webpack-preprocessor": "^5.17.1",
-    "@shelex/cypress-allure-plugin": "^2.40.0",
+    "@shelex/cypress-allure-plugin": "^2.40.1",
     "cypress": "12.14.0",
     "cypress-real-events": "^1.10.3",
     "eslint": "^8.51.0",
