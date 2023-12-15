@@ -4,20 +4,22 @@
     "length-zero-no-unit": null,
     "declaration-empty-line-before": null,
     "no-empty-source": null,
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": [
-        "function",
-        "if",
-        "for",
-        "each",
-        "include",
-        "mixin",
-        "extend"
-      ]
-    }],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "function",
+          "if",
+          "for",
+          "each",
+          "include",
+          "mixin",
+          "extend"
+        ]
+      }
+    ],
     "scss/dollar-variable-pattern": null,
     "scss/at-import-no-partial-leading-underscore": null,
-    "string-quotes": null,
     "selector-class-pattern": null,
     "declaration-block-no-redundant-longhand-properties": null,
     "scss/at-import-partial-extension": null,
@@ -28,7 +30,6 @@
     "scss/dollar-variable-empty-line-before": null,
     "shorthand-property-no-redundant-values": null,
     "no-duplicate-selectors": null,
-    "max-line-length": null,
     "scss/double-slash-comment-whitespace-inside": null,
     "font-family-name-quotes": null,
     "value-keyword-case": [
