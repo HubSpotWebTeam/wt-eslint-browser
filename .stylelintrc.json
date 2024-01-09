@@ -33,6 +33,12 @@
     "no-duplicate-selectors": null,
     "scss/double-slash-comment-whitespace-inside": null,
     "font-family-name-quotes": null,
+    "media-feature-range-notation": [
+      "context",
+      {
+        "severity": "warning"
+      }
+    ],
     "value-keyword-case": [
       "lower",
       {
