@@ -46,7 +46,7 @@
     "webpack": "^5.90.0"
   },
   "peerDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
     "@cypress/webpack-preprocessor": "^6.0.1"
   }
 }
