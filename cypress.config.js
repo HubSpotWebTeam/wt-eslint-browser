@@ -6,8 +6,8 @@ const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const webpack = require('@cypress/webpack-preprocessor');
 
 const { ENV } = process.env;
-const DEV = 'dev';
-const QA = 'qa';
+const DEV = 'DEV';
+const QA = 'QA';
 const PROD = 'prod';
 const currentEnv = ENV || QA;
 
@@ -19,13 +19,14 @@ const envs = {
 }
 
 /**
+ * @param {string} ENV The environment that the user sets in their env file, defaults to DEV
  * @returns {string|null} The `baseUrl` set for the `DEV` portal in `hubspot.config.yml`
  *   or `null` if this is not the dev environment or no such property exists.
  */
-const getDevBaseUrl = () => {
-  if (ENV === DEV) {
+const getDevBaseUrl = (ENV) => {
+  if (ENV.toLowerCase() === DEV.toLowerCase()) {
     try {
-      const configPath = path.resolve(__dirname, 'hubspot.config.yml');
+      const configPath = path.resolve('./', 'hubspot.config.yml');
       const config = fs.readFileSync(configPath, 'utf8');
       const { portals } = yaml.load(config);
       const devPortal = portals.find(portal => portal.name === 'DEV');
