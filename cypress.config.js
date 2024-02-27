@@ -52,34 +52,40 @@ const getDevBaseUrl = () => {
   }
 };
 
+async function setupNodeEvents(on, config) {
+  // This is required for the preprocessor to be able to generate JSON reports after each run
+  await addCucumberPreprocessorPlugin(on, config);
+  on(
+    'file:preprocessor',
+    webpack({
+      webpackOptions: {
+        resolve: {
+          extensions: ['.ts', '.js'],
+        },
+        module: {
+          rules: [
+            {
+              test: /\.feature$/,
+              use: [
+                {
+                  loader: '@badeball/cypress-cucumber-preprocessor/webpack',
+                  options: config,
+                },
+              ],
+            },
+          ],
+        },
+      },
+    })
+  );
+  allureWriter(on, config);
+  // Make sure to return the config object as it might have been modified by the plugin.
+  return config;
+}
+
 const e2e = {
   specPattern: 'cypress/e2e/*.cy.js',
-  testIsolation: false,
-  async setupNodeEvents(on, config) {
-    const webpackOptions = {
-      resolve: {
-        extensions: ['.ts', '.js'],
-      },
-      module: {
-        rules: [
-          {
-            test: /\.feature$/,
-            use: [
-              {
-                loader: '@badeball/cypress-cucumber-preprocessor/webpack',
-                options: config,
-              },
-            ],
-          },
-        ],
-      },
-    };
-
-    await addCucumberPreprocessorPlugin(on, config);
-    on('file:preprocessor', webpack(webpackOptions));
-    allureWriter(on, config);
-    return config;
-  },
+  setupNodeEvents,
 };
 
 const env = {
@@ -104,12 +110,12 @@ const config = {
   screenshotOnRunFailure: true,
   trashAssetsBeforeRuns: true,
   video: false,
-  viewportHeight: 660,
-  viewportWidth: 1350,
+  viewportHeight: 1080,
+  viewportWidth: 1920,
 };
 
 module.exports = {
   config,
   envs,
   getDevBaseUrl,
-};
+}
