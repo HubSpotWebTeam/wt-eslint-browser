@@ -18,8 +18,9 @@ const envs = {
 };
 
 /**
- * Recursively climbs up the filepath, until it finds what directory the
- * 'hubspot.config.yml' file is stored in.
+ * @description Recursively climbs up the filepath, until it finds what directory
+ * the directory where the hubspot.config.yml file is located.
+ *
  * @param {string} currDir - the current working directory path to search from
  * @returns {string} The absolute path of the project's root directory
  */
