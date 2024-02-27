@@ -15,10 +15,10 @@ const envs = {
   DEV,
   QA,
   PROD,
-}
+};
 
 /**
- * 
+ *
  * @param {string} currDir - the current working directory path to search from
  * @returns {string} The absolute path of the project's root directory
  */
@@ -27,7 +27,7 @@ const getRootDir = (currDir) => {
   const parentDir = path.dirname(currDir);
   if (parentDir === currDir) global.console.error('Error: Could not find the hubspot.config.yml file within the projects directories.');
   return getRootDir(parentDir);
-}
+};
 
 /**
  * @returns {string|null} The `baseUrl` set for the `DEV` portal in `hubspot.config.yml`
@@ -35,20 +35,21 @@ const getRootDir = (currDir) => {
  */
 const getDevBaseUrl = () => {
   try {
+    global.console.log(
+      'To test a dev URL, add the `baseUrl` property to your `DEV` portal configuration in `hubspot.config.yml`',
+    );
+    
     const root = getRootDir(__dirname);
     const configPath = path.resolve(root, 'hubspot.config.yml');
     const config = fs.readFileSync(configPath, 'utf8');
     const { portals } = yaml.load(config);
     const devPortal = portals.find(portal => portal.name === 'DEV');
     const devBaseUrl = devPortal.baseUrl;
-    return devBaseUrl ? devBaseUrl : null;
+    return devBaseUrl || null;
   } catch (error) {
     global.console.error(error);
+    return null;
   }
-
-  global.console.log(
-    'To test a dev URL, add the `baseUrl` property to your `DEV` portal configuration in `hubspot.config.yml`',
-  );
 };
 
 const e2e = {
@@ -77,7 +78,7 @@ const e2e = {
     await addCucumberPreprocessorPlugin(on, config);
     on('file:preprocessor', webpack(webpackOptions));
     allureWriter(on, config);
-    return config
+    return config;
   },
 };
 
@@ -111,4 +112,4 @@ module.exports = {
   config,
   envs,
   getDevBaseUrl,
-}
+};
