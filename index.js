@@ -18,6 +18,7 @@ module.exports = {
     'arrow-parens': 0,
     'import/extensions': ['warn', 'ignorePackages'],
     'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
     'no-plusplus': 0,
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-confusing-arrow': 0,
