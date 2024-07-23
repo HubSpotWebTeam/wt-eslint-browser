@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     'comma-dangle': 1,
     'no-param-reassign': [1, { props: false }],
+    'arrow-body-style': 0,
     'arrow-parens': 0,
     'import/extensions': ['warn', 'ignorePackages'],
     'import/no-unresolved': 'off',
