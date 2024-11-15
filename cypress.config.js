@@ -54,6 +54,36 @@ const getDevBaseUrl = () => {
   }
 };
 
+/**
+ * @description Get the baseUrls for different environments from the ci config file for local test execution. 
+ * @returns {object} baseUrls - The base urls object
+ */
+const getBaseUrls = () => {
+  let fileContents = '';
+  let ciConfig = {};
+  const baseUrls = {};
+  baseUrls[envs.DEV] = getDevBaseUrl();
+
+  const fileExist = fs.existsSync('.ci/config.yml');
+  if (fileExist) {
+    fileContents = fs.readFileSync('.ci/config.yml', 'utf8');
+    ciConfig = yaml.load(fileContents);
+    if (ciConfig.regression.e2eTestEnvironment && ciConfig.regression.e2eTestEnvironment.length > 0) {
+      try {
+        ciConfig.regression.e2eTestEnvironment.forEach((item) => {
+          const envName = item.name;
+          baseUrls[envName] = item.url;
+        });
+      } catch (error) {
+        console.error('Error reading the base urls from the ci config file:', error);
+        return null;
+      }
+    }
+  }
+  return baseUrls || null;
+};
+
+
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run
   await addCucumberPreprocessorPlugin(on, config);
@@ -120,4 +150,5 @@ module.exports = {
   config,
   envs,
   getDevBaseUrl,
+  getBaseUrls
 };
