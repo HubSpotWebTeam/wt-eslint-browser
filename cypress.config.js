@@ -6,7 +6,7 @@ const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const webpack = require('@cypress/webpack-preprocessor');
 
 const DEV = 'DEV';
-const QA = 'QA';
+const QA = 'qa';
 const PROD = 'prod';
 const currentEnv = QA;
 
