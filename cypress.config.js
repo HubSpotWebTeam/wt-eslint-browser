@@ -6,15 +6,15 @@ const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const webpack = require('@cypress/webpack-preprocessor');
 
 const DEV = 'DEV';
-const QA = 'QA';
-const PROD = 'prod';
-const currentEnv = QA;
+const qa = 'qa';
+const prod = 'prod';
+const currentEnv = qa;
 
 const envs = {
   currentEnv,
   DEV,
-  QA,
-  PROD,
+  qa,
+  prod,
 };
 
 /**
