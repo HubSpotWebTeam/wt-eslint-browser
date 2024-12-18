@@ -40,7 +40,7 @@ const getDevBaseUrl = () => {
     global.console.log(
       'To test a dev URL, add the `baseUrl` property to your `DEV` portal configuration in `hubspot.config.yml`',
     );
-    
+
     const root = getRootDir(__dirname);
     const configPath = path.resolve(root, 'hubspot.config.yml');
     const config = fs.readFileSync(configPath, 'utf8');
@@ -55,7 +55,7 @@ const getDevBaseUrl = () => {
 };
 
 /**
- * @description Get the baseUrls for different environments from the ci config file for local test execution. 
+ * @description Get the baseUrls for different environments from the ci config file for local test execution.
  * @returns {object} baseUrls - The base urls object
  */
 const getBaseUrls = () => {
@@ -96,6 +96,15 @@ async function setupNodeEvents(on, config) {
         },
         module: {
           rules: [
+            {
+              test: /\.ts$/,
+              exclude: [/node_modules/],
+              use: [
+                {
+                  loader: 'ts-loader',
+                },
+              ],
+            },
             {
               test: /\.feature$/,
               use: [
