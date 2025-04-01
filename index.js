@@ -39,6 +39,7 @@ module.exports = {
     indent: 0,
     'object-curly-newline': 0,
     'function-paren-newline': 0,
+    'nonblock-statement-body-position': 0,
 
     /* React */
     'react/require-extension': 'off',
