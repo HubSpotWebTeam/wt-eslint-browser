@@ -35,7 +35,11 @@ module.exports = {
       },
     ],
     'operator-linebreak': 0,
-    'implicit-arrow-linebreaks': 0,
+    'implicit-arrow-linebreak': 0,
+    indent: 0,
+    'object-curly-newline': 0,
+    'function-paren-newline': 0,
+    'nonblock-statement-body-position': 0,
 
     /* React */
     'react/require-extension': 'off',
@@ -43,10 +47,13 @@ module.exports = {
     'react/no-array-index-key': 0,
     'react/destructuring-assignment': 0,
     'react/require-default-props': 0,
-    'react/self-closing-comp': [2, {
-      component: true,
-      html: false,
-    }],
+    'react/self-closing-comp': [
+      2,
+      {
+        component: true,
+        html: false,
+      },
+    ],
   },
   globals: {
     $: true,
