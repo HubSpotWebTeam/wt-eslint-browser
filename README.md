@@ -5,6 +5,7 @@ This is a list of ESLint rules that are recommended for use with Hubspot Marketi
 https://www.npmjs.com/package/@hs-web-team/eslint-config-browser
 
 <!-- index-start -->
+
 ## Index
 
 - [Introduction](#introduction)
@@ -33,7 +34,7 @@ npm i -D @hs-web-team/eslint-config-browser
 }
 ```
 
-3. Extend the eslint on a project basis by adding rules to  `.eslintrc` e.g.
+3. Extend the eslint on a project basis by adding rules to `.eslintrc` e.g.
 
 ```
 {

@@ -24,10 +24,11 @@ const envs = {
  * @param {string} currDir - the current working directory path to search from
  * @returns {string} The absolute path of the project's root directory
  */
-const getRootDir = (currDir) => {
+const getRootDir = currDir => {
   if (fs.existsSync(path.join(currDir, 'hubspot.config.yml'))) return currDir;
   const parentDir = path.dirname(currDir);
-  if (parentDir === currDir) global.console.error('Error: Could not find the hubspot.config.yml file within the projects directories.');
+  if (parentDir === currDir)
+    global.console.error('Error: Could not find the hubspot.config.yml file within the projects directories.');
   return getRootDir(parentDir);
 };
 
@@ -70,7 +71,7 @@ const getBaseUrls = () => {
     ciConfig = yaml.load(fileContents);
     if (ciConfig.regression.e2eTestEnvironment && ciConfig.regression.e2eTestEnvironment.length > 0) {
       try {
-        ciConfig.regression.e2eTestEnvironment.forEach((item) => {
+        ciConfig.regression.e2eTestEnvironment.forEach(item => {
           const envName = item.name;
           baseUrls[envName] = item.url;
         });
@@ -82,7 +83,6 @@ const getBaseUrls = () => {
   }
   return baseUrls || null;
 };
-
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run
@@ -159,5 +159,5 @@ module.exports = {
   config,
   envs,
   getDevBaseUrl,
-  getBaseUrls
+  getBaseUrls,
 };
