@@ -35,7 +35,10 @@ module.exports = {
       },
     ],
     'operator-linebreak': 0,
-    'implicit-arrow-linebreaks': 0,
+    'implicit-arrow-linebreak': 0,
+    indent: 0,
+    'object-curly-newline': 0,
+    'function-paren-newline': 0,
 
     /* React */
     'react/require-extension': 'off',
