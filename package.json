@@ -1,6 +1,6 @@
 {
   "name": "@hs-web-team/eslint-config-browser",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
   "scripts": {
