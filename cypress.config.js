@@ -2,7 +2,6 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
 const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const webpack = require('@cypress/webpack-preprocessor');
 
 const DEV = 'DEV';
@@ -120,8 +119,6 @@ async function setupNodeEvents(on, config) {
       },
     }),
   );
-  allureWriter(on, config);
-  // Make sure to return the config object as it might have been modified by the plugin.
   return config;
 }
 
@@ -130,17 +127,10 @@ const e2e = {
   setupNodeEvents,
 };
 
-const env = {
-  allure: true,
-  allureLogGherkin: true,
-  allureReuseAfterSpec: true,
-};
-
 const config = {
   chromeWebSecurity: false,
   defaultCommandTimeout: 20000,
   e2e,
-  env,
   numTestsKeptInMemory: 0,
   pageLoadTimeout: 20000,
   port: 3500,
