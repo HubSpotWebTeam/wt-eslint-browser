@@ -27,7 +27,7 @@ const getRootDir = currDir => {
   if (fs.existsSync(path.join(currDir, 'hubspot.config.yml'))) return currDir;
   const parentDir = path.dirname(currDir);
   if (parentDir === currDir) {
-    global.console.error('Error: Could not find the hubspot.config.yml file within the projects directories.');
+    throw new Error('Error: Could not find the hubspot.config.yml file within the projects directories.');
   }
   return getRootDir(parentDir);
 };
