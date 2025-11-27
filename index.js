@@ -20,7 +20,25 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-plusplus': 0,
-    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-underscore-dangle': [
+      'error',
+      {
+        allow: [
+          '_hsg',
+          '_hsq',
+        ]
+      }
+    ],
+    'no-console': [
+      'error',
+      {
+        allow: [
+          'info',
+          'warn',
+          'error',
+        ]
+      }
+    ],
     'no-confusing-arrow': 0,
     'import/no-extraneous-dependencies': 0,
     'no-trailing-spaces': [2, { skipBlankLines: true }],
