@@ -11,6 +11,7 @@ https://www.npmjs.com/package/@hs-web-team/eslint-config-browser
 - [Introduction](#introduction)
 - [Setup](#setup)
 - [Migrating from an exisiting .eslint config](#migrating-from-an-existing-eslint-config)
+- [Enable accessibility testing with cypress-axe](#optional-enable-accessibility-testing-with-cypress-axe)
 - [Where to use it](#where-to-use-it)
 <!-- index-end -->
 
@@ -90,6 +91,39 @@ module.exports = defineConfig({
 
 Reference
 https://eslint.org/docs/developer-guide/shareable-configs
+
+## (Optional) Enable accessibility testing with cypress-axe
+
+This package includes a shared accessibility testing setup using [cypress-axe](https://github.com/component-driven/cypress-axe). Projects can opt in with a single import — no need to install `cypress-axe` or `axe-core` directly.
+
+1. Add to `cypress/support/e2e.ts`
+
+```ts
+import '@hs-web-team/eslint-config-browser/cypress';
+```
+
+This registers `cy.injectAxe()`, `cy.checkA11y()`, and `cy.checkAccessibility()`.
+
+2. Call `cy.injectAxe()` in your project's navigation command, after the page visit e.g.
+
+```ts
+// cypress/support/commands.ts
+cy.visitPageIfUrlChanged(urlPath).then(() => {
+  cy.injectAxe();
+});
+```
+
+3. Use `cy.checkAccessibility()` in your tests e.g.
+
+```ts
+// Check the whole page
+cy.checkAccessibility();
+
+// Scope to a specific component
+cy.checkAccessibility('.csol-accordion');
+```
+
+`cy.checkAccessibility()` adds the `high-contrast` class to `body`, runs WCAG 2.2 Level AA rules only, and logs each violation with its id, help text, impact, element targets, and help URL. TypeScript types are included — no `tsconfig.json` changes required.
 
 ## Where to use it
 
