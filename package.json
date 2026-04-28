@@ -1,8 +1,23 @@
 {
   "name": "@hs-web-team/eslint-config-browser",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cypress": {
+      "types": "./cypress/index.d.ts",
+      "default": "./cypress/index.js"
+    },
+    "./cypress.config.js": "./cypress.config.js"
+  },
+  "typesVersions": {
+    "*": {
+      "cypress": [
+        "./cypress/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "lint": "npx eslint -c ./index.js *.js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,7 +44,9 @@
     "@babel/eslint-parser": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@cypress/webpack-preprocessor": "^6.0.4",
+    "axe-core": "^4.11.3",
     "cypress": "^14.5.2",
+    "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.14.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
