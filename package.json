@@ -1,6 +1,6 @@
 {
   "name": "@hs-web-team/eslint-config-browser",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
   "exports": {
@@ -13,7 +13,9 @@
   },
   "typesVersions": {
     "*": {
-      "cypress": ["./cypress/index.d.ts"]
+      "cypress": [
+        "./cypress/index.d.ts"
+      ]
     }
   },
   "scripts": {
