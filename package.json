@@ -1,7 +1,7 @@
 {
   "name": "@hs-web-team/eslint-config-browser",
-  "version": "5.1.0",
-  "description": "HubSpot Marketing WebTeam ESLint rules for Browsers",
+  "version": "5.1.1",
+  "description": "[DEPRECATED] Use @hs-web-team/eslint-config-node/browser instead. HubSpot Marketing WebTeam ESLint rules for Browsers",
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint -c ./index.js *.js --fix",
